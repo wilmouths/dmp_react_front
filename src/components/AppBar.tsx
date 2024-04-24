@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from '@tanstack/react-router';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar as MuiAppBar,
@@ -6,18 +8,18 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  Menu,
   Container,
   Button,
   MenuItem,
   PaletteMode,
 } from '@mui/material';
 
+import ToggleColorMode from './ToggleColorMode';
+import LanguageSelector from './LanguageSelector';
+import useAppStore from '../store/app';
+
 import cnrsLogo from '../assets/img/cnrs.png';
 import logo from '../assets/img/logo.png';
-
-import { Link } from '@tanstack/react-router';
-import ToggleColorMode from './ToggleColorMode';
 
 interface AppBarProps {
   mode: PaletteMode;
@@ -25,15 +27,8 @@ interface AppBarProps {
 }
 
 function AppBar({ mode, toggleColorMode }: AppBarProps) {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  const { drawer, toggleDrawer } = useAppStore();
+  const { t } = useTranslation();
 
   return (
     <MuiAppBar position="static" sx={{  bgcolor: 'transparent', top: 'auto', bottom: 0 }}>
@@ -46,44 +41,25 @@ function AppBar({ mode, toggleColorMode }: AppBarProps) {
               component="a"
               sx={{
                 mr: 5,
-                display: { xs: 'flex', md: 'flex' },
+                display: { xs: 'none', md: 'flex' },
               }}
             >
               <img src={cnrsLogo} alt="CNRS Logo" width="48" />
-              <img src={logo} alt="DMPOPIDoR Logo" width="128" style={{ marginLeft: '10px' }} />
+              <img src={logo} alt="App Logo" width="128" style={{ marginLeft: '10px' }} />
             </Typography>
           </Link>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={() => toggleDrawer(!drawer)}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon color="primary" />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              <Link to="/help">Help</Link>
-            </Menu>
           </Box>
 
           <Typography
@@ -95,22 +71,18 @@ function AppBar({ mode, toggleColorMode }: AppBarProps) {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'blue',
-              textDecoration: 'none',
             }}
           >
-            DMPOPIDoR
+            <img src={logo} alt="App Logo" width="128" />
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Link to="#">
+            <Link to="/help">
               <MenuItem
                 sx={{ py: '6px', px: '12px' }}
               >
-                <Typography variant="body1" variant="overline" color="text.primary">
-                  Help
+                <Typography variant="button" color="primary">
+                  {t('appBar.help')}
                 </Typography>
               </MenuItem>
             </Link>
@@ -119,8 +91,8 @@ function AppBar({ mode, toggleColorMode }: AppBarProps) {
               <MenuItem
                 sx={{ py: '6px', px: '12px' }}
               >
-                <Typography variant="body1" variant="overline" color="text.primary">
-                  Plans & templates
+                <Typography variant="button" color="primary">
+                {t('appBar.plansAndTemplates')}
                 </Typography>
               </MenuItem>
             </Link>
@@ -129,24 +101,29 @@ function AppBar({ mode, toggleColorMode }: AppBarProps) {
               <MenuItem
                 sx={{ py: '6px', px: '12px' }}
               >
-                <Typography variant="body1" variant="overline" color="text.primary">
-                  Learn more
+                <Typography variant="button" color="primary">
+                  {t('appBar.learnMore')}
                 </Typography>
               </MenuItem>
             </Link>
           </Box>
 
-          <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
-
-          <Box sx={{ margin: '10px' }}>
-            <Link to="/sign-in">Sign in</Link>
+          <Box sx={{ margin: '10px', display: { xs: 'none', md: 'flex' } }}>
+            <Link to="/sign-in">
+              <Typography color="primary">
+                {t('appBar.signIn')}
+              </Typography>
+            </Link>
           </Box>
 
-          <Box sx={{ margin: '10px' }}>
+          <Box sx={{ margin: '10px', display: { xs: 'none', md: 'flex' } }}>
             <Link to="/sign-up">
-              <Button size="small" variant="contained" color="primary">Sign up</Button>
+              <Button size="small" variant="contained" color="primary">{t('appBar.signUp')}</Button>
             </Link>
           </Box>
+
+          <LanguageSelector sx={{ display: { xs: 'none', md: 'flex' } }} />
+          {/* <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} sx={{ display: { xs: 'none', md: 'flex' } }} /> */}
         </Toolbar>
       </Container>
     </MuiAppBar>

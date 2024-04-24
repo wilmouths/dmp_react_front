@@ -1,3 +1,20 @@
 {
-  "home": "Accueil"
+  "home": "Accueil",
+  "appBar": {
+    "help": "Aide",
+    "plansAndTemplates": "DMP & Modèles",
+    "learnMore": "En savoir plus",
+    "signIn": "Connexion",
+    "signUp": "Créer un compte"
+  },
+  "languages": {
+    "french": "Français",
+    "english": "English (UK)"
+  },
+  "hero": {
+    "title": "Bien décrire la vie de vos données pour leur assurer un futur",
+    "subtitle": "DMP OPIDoR, un outil et un accompagnement actifs pour planifier la gestion de vos données en harmonie avec les pratiques de votre communauté"
+  },
+  "toggleColorMode": "Changer de théme",
+  "selectLanguage": "Changer la langue"
 }

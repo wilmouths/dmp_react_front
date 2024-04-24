@@ -5,21 +5,24 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 
 import hero from '../assets/img/hero.png';
+import { useTranslation } from 'react-i18next';
 
 export default function Hero() {
+  const { t } = useTranslation()
+
   return (
     <Box
       id="hero"
-      sx={() => ({
+      sx={{
         width: '100%',
         backgroundImage: `url(${hero})`,
         backgroundSize: '100%',
         backgroundRepeat: 'no-repeat',
-      })}
+        display: { xs: 'none', md: 'flex' },
+      }}
     >
       <Container
         sx={{
-          display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           pt: { xs: 12, sm: 14 },
@@ -35,10 +38,11 @@ export default function Hero() {
               flexDirection: { xs: 'column', md: 'row' },
               alignSelf: 'center',
               textAlign: 'center',
+              fontWeight: 400,
               fontSize: 'clamp(3.5rem, 10vw, 4rem)',
             }}
           >
-            Bien décrire la vie de vos données pour leur assurer un futur
+            {t('hero.title')}
           </Typography>
           <Typography
             variant="h5"
@@ -46,7 +50,7 @@ export default function Hero() {
             textAlign="center"
             sx={{ alignSelf: 'center', width: { sm: '100%', md: '80%' } }}
           >
-            DMP OPIDoR, un outil et un accompagnement actifs pour planifier la gestion de vos données en harmonie avec les pratiques de votre communauté
+            {t('hero.subtitle')}
           </Typography>
         </Stack>
       </Container>

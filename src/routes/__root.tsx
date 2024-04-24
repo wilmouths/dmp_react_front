@@ -9,6 +9,7 @@ import AppBar from '../components/AppBar'
 import Error from '../components/Error'
 import { PaletteMode } from '@mui/material';
 import Hero from '../components/Hero';
+import Drawer from '../components/Drawer';
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -21,7 +22,9 @@ function RootComponent() {
   const route = useRouter();
   const [mode, setMode] = React.useState<PaletteMode>('light');
 
-  const currentRoute = route.latestLocation.pathname.substring(1);
+  const currentRoute = route.latestLocation.pathname.length > 1
+    ? route.latestLocation.pathname.substring(1)
+    : route.latestLocation.pathname
 
   const toggleColorMode = () => {
     setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
@@ -44,7 +47,8 @@ function RootComponent() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {!hideAppBarRoutes.includes(currentRoute) && <AppBar mode={mode} toggleColorMode={toggleColorMode} />}
-      {!hideAppBarRoutes.includes(currentRoute) && <Hero />}
+      {!hideAppBarRoutes.includes(currentRoute) && currentRoute === '/' && <Hero />}
+      {!hideAppBarRoutes.includes(currentRoute) && <Drawer />}
       <Container component="main" maxWidth="xl">
         <Box
           sx={{

@@ -11,21 +11,27 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as HelpImport } from './routes/help'
 import { Route as IndexImport } from './routes/index'
-import { Route as UsersUserImport } from './routes/users/$user'
+import { Route as UserUserImport } from './routes/user/$user'
 import { Route as SignLayoutImport } from './routes/_sign/_layout'
 import { Route as SignLayoutSignUpImport } from './routes/_sign/_layout/sign-up'
 import { Route as SignLayoutSignInImport } from './routes/_sign/_layout/sign-in'
 
 // Create/Update Routes
 
+const HelpRoute = HelpImport.update({
+  path: '/help',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const UsersUserRoute = UsersUserImport.update({
-  path: '/users/$user',
+const UserUserRoute = UserUserImport.update({
+  path: '/user/$user',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -52,12 +58,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/help': {
+      preLoaderRoute: typeof HelpImport
+      parentRoute: typeof rootRoute
+    }
     '/_sign/_layout': {
       preLoaderRoute: typeof SignLayoutImport
       parentRoute: typeof rootRoute
     }
-    '/users/$user': {
-      preLoaderRoute: typeof UsersUserImport
+    '/user/$user': {
+      preLoaderRoute: typeof UserUserImport
       parentRoute: typeof rootRoute
     }
     '/_sign/_layout/sign-in': {
@@ -75,8 +85,9 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexRoute,
+  HelpRoute,
   SignLayoutRoute.addChildren([SignLayoutSignInRoute, SignLayoutSignUpRoute]),
-  UsersUserRoute,
+  UserUserRoute,
 ])
 
 /* prettier-ignore-end */
