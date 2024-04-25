@@ -16,5 +16,26 @@
     "subtitle": "DMP OPIDoR, un outil et un accompagnement actifs pour planifier la gestion de vos données en harmonie avec les pratiques de votre communauté"
   },
   "toggleColorMode": "Changer de théme",
-  "selectLanguage": "Changer la langue"
+  "selectLanguage": "Changer la langue",
+  "news": {
+    "title": "Actualités",
+    "readMore": "Lire l'article"
+  },
+  "footer": {
+    "description": "DMP OPIDoR vous guide dans la rédaction et l'implémentation d'un plan de gestion de données, logiciels ou autres produits.",
+    "navigation": "Navigation",
+    "about": "A propos",
+    "ecosystem": "Écosystème"
+  },
+  "menu": {
+    "help": "Aide",
+    "dmpTemplates": "Modèles de DMP",
+    "contactUs": "Nous contacter",
+    "apiDocumentation": "Documentation API",
+    "termsOfUse": "Conditions générales d'utilisation",
+    "privacyStatement": "Politique de confidentialité"
+  },
+  "signUp": {
+    "acceptTermsOfUse": "J'accepte le conditions générales d'utilisation"
+  }
 }

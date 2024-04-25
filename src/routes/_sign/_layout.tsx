@@ -1,24 +1,11 @@
 import * as React from 'react'
-import { Link, Outlet, createRootRoute } from '@tanstack/react-router'
+import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import CssBaseline from '@mui/material/CssBaseline'
 import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import Error from '../../components/Error'
-
-function Copyright(props: any) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://dmp.opidor.fr/">
-        DMPOPIDoR
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
+import Copyright from '../../components/Copyright'
 
 export const Route = createRootRoute({
   component: SignLayout,
@@ -39,8 +26,8 @@ function SignLayout() {
       >
         <Outlet />
         <TanStackRouterDevtools position="bottom-right" />
+        <Copyright color="primary" sx={{ mt: 4, textAlign: 'center' }} />
       </Box>
-      <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
   )
 }

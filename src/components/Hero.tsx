@@ -18,6 +18,7 @@ export default function Hero() {
         backgroundImage: `url(${hero})`,
         backgroundSize: '100%',
         backgroundRepeat: 'no-repeat',
+        backgroundPositionY: '-10px',
         display: { xs: 'none', md: 'flex' },
       }}
     >

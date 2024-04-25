@@ -16,5 +16,23 @@
     "subtitle": "DMP OPIDoR – an active support tool to help plan your data management in harmony with your community’s practices"
   },
   "toggleColorMode": "Change theme",
-  "selectLanguage": "Change language"
+  "selectLanguage": "Change language",
+  "news": {
+    "title": "News",
+    "readMore": "Read article"
+  },
+  "footer": {
+    "description": "DMP OPIDoR guides you through the drafting and implementation into practice of data, software and other products management plan.",
+    "navigation": "Navigation",
+    "about": "About",
+    "ecosystem": "Ecosystem"
+  },
+  "menu": {
+    "help": "Help",
+    "dmpTemplates": "DMP Templates",
+    "contactUs": "Contact Us",
+    "apiDocumentation": "API Documentation",
+    "termsOfUse": "Terms of use",
+    "privacyStatement": "Privay statement"
+  }
 }

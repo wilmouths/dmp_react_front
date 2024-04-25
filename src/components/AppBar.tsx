@@ -31,7 +31,7 @@ function AppBar({ mode, toggleColorMode }: AppBarProps) {
   const { t } = useTranslation();
 
   return (
-    <MuiAppBar position="static" sx={{  bgcolor: 'transparent', top: 'auto', bottom: 0 }}>
+    <MuiAppBar position="sticky" sx={{ bgcolor: 'white' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link to="/">

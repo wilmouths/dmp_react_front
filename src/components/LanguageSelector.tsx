@@ -6,6 +6,7 @@ import MenuItem from '@mui/material/MenuItem'
 import { useTranslation } from 'react-i18next'
 import TranslateIcon from '@mui/icons-material/Translate'
 import Tooltip from '@mui/material/Tooltip';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 interface LanguageSelectorProps {
   sx: object;
@@ -30,17 +31,20 @@ export default function LanguageSelector({ sx }: LanguageSelectorProps) {
   }
 
   return (
-    <Box sx={{ maxWidth: '32px', margin: '5px', ...sx }}>
+    <Box sx={{ ...sx }}>
       <Tooltip title={t('selectLanguage')}>
         <Button
-          id="basic-button"
+          id="i18n-button"
           aria-controls={open ? 'basic-menu' : undefined}
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={{ minWidth: '32px', height: '32px', p: '4px' }}
+          sx={{ minWidth: '32px', height: '32px'}}
+          startIcon={<TranslateIcon />}
+          // endIcon={<KeyboardArrowDownIcon />}
+          variant="outlined"
         >
-          <TranslateIcon fontSize="small" />
+          {i18n.resolvedLanguage?.toUpperCase()}
         </Button>
       </Tooltip>
       <Menu

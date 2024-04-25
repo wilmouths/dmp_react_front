@@ -10,12 +10,18 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Link as RouterLink, createFileRoute } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
+import { VisibilityOff, Visibility } from '@mui/icons-material';
+import { InputAdornment, IconButton } from '@mui/material';
 
 export const Route = createFileRoute('/_sign/_layout/sign-up')({
   component: SignUp
 })
 
 function SignUp() {
+  const { t } = useTranslation();
+  const [showPassword, setShowPassword] = React.useState(false);
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -23,6 +29,12 @@ function SignUp() {
       email: data.get('email'),
       password: data.get('password'),
     });
+  };
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
   };
 
   return (
@@ -66,7 +78,7 @@ function SignUp() {
               autoComplete="email"
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <TextField
               required
               fullWidth
@@ -74,13 +86,24 @@ function SignUp() {
               label="Password"
               type="password"
               id="password"
-              autoComplete="new-password"
+              autoComplete="password"
+            />
+          </Grid>
+          <Grid item xs={6}>
+            <TextField
+              required
+              fullWidth
+              name="repeat-password"
+              label="Repeat password"
+              type="password"
+              id="repeat-password"
+              autoComplete="repeat-password"
             />
           </Grid>
           <Grid item xs={12}>
             <FormControlLabel
-              control={<Checkbox value="allowExtraEmails" color="primary" />}
-              label="I want to receive inspiration, marketing promotions and updates via email."
+              control={<Checkbox value="termsOfuse" color="primary" />}
+              label={t('signUp.acceptTermsOfUse')}
             />
           </Grid>
         </Grid>

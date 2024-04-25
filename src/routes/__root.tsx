@@ -10,6 +10,7 @@ import Error from '../components/Error'
 import { PaletteMode } from '@mui/material';
 import Hero from '../components/Hero';
 import Drawer from '../components/Drawer';
+import Footer from '../components/Footer';
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -34,8 +35,8 @@ function RootComponent() {
     palette: {
       mode,
       primary: {
-        main: '#2c7dad',
-        light: '#172849',
+        main: '#172849',
+        light: '#2c7dad',
       },
       secondary: {
         main: '#c6503d',
@@ -62,6 +63,7 @@ function RootComponent() {
           <TanStackRouterDevtools position="bottom-right" />
         </Box>
       </Container>
+      {!hideAppBarRoutes.includes(currentRoute) && <Footer />}
     </ThemeProvider>
   )
 }
