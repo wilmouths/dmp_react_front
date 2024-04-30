@@ -11,6 +11,7 @@ import { PaletteMode } from '@mui/material';
 import Hero from '../components/Hero';
 import Drawer from '../components/Drawer';
 import Footer from '../components/Footer';
+import TechnicalSupport from '../components/TechnicalSupport';
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -40,13 +41,14 @@ function RootComponent() {
       },
       secondary: {
         main: '#c6503d',
-      }
+      },
     },
   });
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      {!hideAppBarRoutes.includes(currentRoute) && <TechnicalSupport />}
       {!hideAppBarRoutes.includes(currentRoute) && <AppBar mode={mode} toggleColorMode={toggleColorMode} />}
       {!hideAppBarRoutes.includes(currentRoute) && currentRoute === '/' && <Hero />}
       {!hideAppBarRoutes.includes(currentRoute) && <Drawer />}

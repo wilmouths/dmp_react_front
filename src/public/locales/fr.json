@@ -13,7 +13,11 @@
   },
   "hero": {
     "title": "Bien décrire la vie de vos données pour leur assurer un futur",
-    "subtitle": "DMP OPIDoR, un outil et un accompagnement actifs pour planifier la gestion de vos données en harmonie avec les pratiques de votre communauté"
+    "subtitle": "DMP OPIDoR, un outil et un accompagnement actifs pour planifier la gestion de vos données en harmonie avec les pratiques de votre communauté",
+    "firstVisit": {
+      "title": "Première visite chez nous ?",
+      "content": "Découvrez DMP OPIDoR en 180 secondes !"
+    }
   },
   "toggleColorMode": "Changer de théme",
   "selectLanguage": "Changer la langue",
@@ -37,5 +41,6 @@
   },
   "signUp": {
     "acceptTermsOfUse": "J'accepte le conditions générales d'utilisation"
-  }
+  },
+  "technicalSupport": "Support technique"
 }

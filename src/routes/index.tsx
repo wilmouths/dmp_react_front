@@ -9,7 +9,6 @@ import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import Skeleton from '@mui/material/Skeleton'
 import { useQuery } from '@tanstack/react-query'
-import Stack from '@mui/material/Stack'
 
 import axios from '../utils/axios'
 import Grid from '@mui/material/Grid'

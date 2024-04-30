@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography'
 import hero from '../assets/img/hero.png';
 import { useTranslation } from 'react-i18next';
 
+import FirstVisit from './FirstVisit';
+
 export default function Hero() {
   const { t } = useTranslation()
 
@@ -20,6 +22,7 @@ export default function Hero() {
         backgroundRepeat: 'no-repeat',
         backgroundPositionY: '-10px',
         display: { xs: 'none', md: 'flex' },
+        marginBottom: '100px',
       }}
     >
       <Container
@@ -55,6 +58,7 @@ export default function Hero() {
           </Typography>
         </Stack>
       </Container>
+      <FirstVisit />
     </Box>
   );
 }

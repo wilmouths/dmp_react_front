@@ -13,7 +13,11 @@
   },
   "hero": {
     "title": "Effectively describing the life of your data to ensure its future",
-    "subtitle": "DMP OPIDoR – an active support tool to help plan your data management in harmony with your community’s practices"
+    "subtitle": "DMP OPIDoR – an active support tool to help plan your data management in harmony with your community’s practices",
+    "firstVisit": {
+      "title": "First time visiting?",
+      "content": "Discover DMP OPIDoR in three minutes!"
+    }
   },
   "toggleColorMode": "Change theme",
   "selectLanguage": "Change language",
@@ -34,5 +38,6 @@
     "apiDocumentation": "API Documentation",
     "termsOfUse": "Terms of use",
     "privacyStatement": "Privay statement"
-  }
+  },
+  "technicalSupport": "Technical support"
 }

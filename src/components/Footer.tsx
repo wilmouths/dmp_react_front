@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import Copyright from './Copyright';
 import XIcon from '@mui/icons-material/X';
 import IconButton from '@mui/material/IconButton';
@@ -29,8 +28,8 @@ export default function Footer() {
         borderTop: '1px solid',
         borderColor: 'divider',
         backgroundColor: (theme) => theme.palette.primary.dark,
-        py: { xs: 1, sm: 2 },
-        mt: 5,
+        py: { xs: 1, sm: 5 },
+        marginTop: '150px',
         color: 'white',
       }}
     >
